@@ -17,6 +17,7 @@ import com.salesmanager.shop.utils.DateUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
 
 /**
  * Used for managing token based authentication for customer and user
@@ -75,8 +76,9 @@ public class JWTTokenUtil implements Serializable {
 	    }
 
 	    private Claims getAllClaimsFromToken(String token) {
-	        return Jwts.parser()
+	        return Jwts.parserBuilder()
 	                .setSigningKey(secret)
+	                .build()
 	                .parseClaimsJws(token)
 	                .getBody();
 	    }
@@ -133,7 +135,7 @@ public class JWTTokenUtil implements Serializable {
 	                .setAudience(audience)
 	                .setIssuedAt(createdDate)
 	                .setExpiration(expirationDate)
-	                .signWith(SignatureAlgorithm.HS512, secret)
+	                .signWith(Keys.hmacShaKeyFor(secret.getBytes()), SignatureAlgorithm.HS512)
 	                .compact();
 	    }
 	    
@@ -166,7 +168,7 @@ public class JWTTokenUtil implements Serializable {
 
 	        return Jwts.builder()
 	                .setClaims(claims)
-	                .signWith(SignatureAlgorithm.HS512, secret)
+	                .signWith(Keys.hmacShaKeyFor(secret.getBytes()), SignatureAlgorithm.HS512)
 	                .compact();
 	    }
 

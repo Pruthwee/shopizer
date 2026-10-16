@@ -13,12 +13,11 @@
    http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring.xsd">
 
 
-	<bean id="springCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-		<property name="configLocation" value="classpath:/spring/ehcache.xml" />
-		<property name="shared" value="false" />
+	<bean id="springCacheManager" class="net.sf.ehcache.CacheManager" factory-method="newInstance">
+		<constructor-arg value="classpath:/spring/ehcache.xml" />
 	</bean>
 
-	<bean id="serviceCacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+	<bean id="serviceCacheManager" class="com.salesmanager.core.business.utils.EhCacheWrapperCacheManager">
 		<property name="cacheManager">
 			<ref bean="springCacheManager" />
 		</property>
