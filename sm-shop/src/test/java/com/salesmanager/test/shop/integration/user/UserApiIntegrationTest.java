@@ -24,8 +24,8 @@ import com.salesmanager.test.shop.common.ServicesTestSupport;
 public class UserApiIntegrationTest extends ServicesTestSupport {
   
   private static Long DEFAULT_USER_ID = 1L;
-  private static String CREATED_PASSWORD = "Password1";
-  private static String NEW_CREATED_PASSWORD = "Password2";
+  private static String CREATED_PASSWORD = System.getenv().getOrDefault("TEST_USER_PASSWORD", "Password1");
+  private static String NEW_CREATED_PASSWORD = System.getenv().getOrDefault("TEST_USER_NEW_PASSWORD", "Password2");
   
   @Inject
   private TestRestTemplate testRestTemplate;

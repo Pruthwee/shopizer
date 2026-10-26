@@ -39,7 +39,7 @@ public class UserServicesImpl implements WebUserServices{
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserServicesImpl.class);
 	
-	private static final String DEFAULT_INITIAL_PASSWORD = "password";
+	private static final String DEFAULT_INITIAL_PASSWORD = System.getenv().getOrDefault("USER_DEFAULT_PASSWORD", "password");
 
 	@Inject
 	private UserService userService;

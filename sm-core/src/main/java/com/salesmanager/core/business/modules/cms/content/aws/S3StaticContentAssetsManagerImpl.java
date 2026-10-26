@@ -23,6 +23,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.salesmanager.core.business.exception.ServiceException;
+import org.springframework.stereotype.Component;
 import com.salesmanager.core.business.modules.cms.content.ContentAssetsManager;
 import com.salesmanager.core.business.modules.cms.impl.CMSManager;
 import com.salesmanager.core.model.content.FileContentType;
@@ -35,6 +36,7 @@ import com.salesmanager.core.model.content.OutputContentFile;
  * @author carlsamson
  *
  */
+@Component
 public class S3StaticContentAssetsManagerImpl implements ContentAssetsManager {
 
 	private static final long serialVersionUID = 1L;

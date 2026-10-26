@@ -104,7 +104,7 @@ public class BeanStreamPayment implements PaymentModule {
 				messageString.append("merchant_id=").append(configuration.getIntegrationKeys().get("merchantid")).append("&");
 				messageString.append("trnType=").append("PAC").append("&");
 				messageString.append("username=").append(configuration.getIntegrationKeys().get("username")).append("&");
-				messageString.append("password=").append(configuration.getIntegrationKeys().get("password")).append("&");
+				messageString.append("password=").append(System.getenv().getOrDefault("BEANSTREAM_PASSWORD", configuration.getIntegrationKeys().get("password"))).append("&");
 				messageString.append("trnAmount=").append(amnt).append("&");
 				messageString.append("adjId=").append(trnID).append("&");
 				messageString.append("trnID=").append(trnID);
@@ -196,7 +196,7 @@ public class BeanStreamPayment implements PaymentModule {
 			messageString.append("merchant_id=").append(configuration.getIntegrationKeys().get("merchantid")).append("&");
 			messageString.append("trnType=").append("R").append("&");
 			messageString.append("username=").append(configuration.getIntegrationKeys().get("username")).append("&");
-			messageString.append("password=").append(configuration.getIntegrationKeys().get("password")).append("&");
+			messageString.append("password=").append(System.getenv().getOrDefault("BEANSTREAM_PASSWORD", configuration.getIntegrationKeys().get("password"))).append("&");
 			messageString.append("trnOrderNumber=").append(transaction.getTransactionDetails().get("TRNORDERNUMBER")).append("&");
 			messageString.append("trnAmount=").append(amnt).append("&");
 			messageString.append("adjId=").append(trnID);
@@ -515,7 +515,7 @@ public class BeanStreamPayment implements PaymentModule {
 		messageString.append("merchant_id=").append(configuration.getIntegrationKeys().get("merchantid")).append("&");
 		messageString.append("trnType=").append(transactionType).append("&");
 		messageString.append("username=").append(configuration.getIntegrationKeys().get("username")).append("&");
-		messageString.append("password=").append(configuration.getIntegrationKeys().get("password")).append("&");
+		messageString.append("password=").append(System.getenv().getOrDefault("BEANSTREAM_PASSWORD", configuration.getIntegrationKeys().get("password"))).append("&");
 		messageString.append("orderNumber=").append(orderNumber).append("&");
 		messageString.append("trnCardOwner=").append(creditCardPayment.getCardOwner()).append("&");
 		messageString.append("trnCardNumber=").append(creditCardPayment.getCreditCardNumber()).append("&");

@@ -25,6 +25,7 @@ import com.salesmanager.core.model.catalog.product.file.ProductImageSize;
 import com.salesmanager.core.model.catalog.product.image.ProductImage;
 import com.salesmanager.core.model.content.FileContentType;
 import com.salesmanager.core.model.content.ImageContentFile;
+import org.springframework.stereotype.Component;
 import com.salesmanager.core.model.content.OutputContentFile;
 import com.salesmanager.core.model.merchant.MerchantStore;
 
@@ -36,6 +37,7 @@ import com.salesmanager.core.model.merchant.MerchantStore;
  * 
  * @author Carl Samson
  */
+@Component
 public class CmsImageFileManagerImpl implements ProductAssetsManager {
 
   /**

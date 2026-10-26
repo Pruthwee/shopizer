@@ -50,7 +50,7 @@ public class CustomerTest extends com.salesmanager.test.common.AbstractSalesMana
 		customer.setCompany("ifactory");
 		customer.setDateOfBirth(new Date());
 		customer.setNick("My nick");
-		customer.setPassword("123456");
+		customer.setPassword(System.getenv().getOrDefault("TEST_CUSTOMER_PASSWORD", "123456"));
 		customer.setDefaultLanguage(store.getDefaultLanguage());
 		
 	    Delivery delivery = new Delivery();

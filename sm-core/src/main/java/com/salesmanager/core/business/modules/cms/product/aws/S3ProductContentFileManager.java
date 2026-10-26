@@ -28,6 +28,7 @@ import com.salesmanager.core.model.catalog.product.file.ProductImageSize;
 import com.salesmanager.core.model.catalog.product.image.ProductImage;
 import com.salesmanager.core.model.content.FileContentType;
 import com.salesmanager.core.model.content.ImageContentFile;
+import org.springframework.stereotype.Component;
 import com.salesmanager.core.model.content.OutputContentFile;
 
 /**
@@ -36,6 +37,7 @@ import com.salesmanager.core.model.content.OutputContentFile;
  * @author carlsamson
  *
  */
+@Component
 public class S3ProductContentFileManager
     implements ProductAssetsManager {
 

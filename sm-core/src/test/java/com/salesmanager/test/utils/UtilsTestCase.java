@@ -85,7 +85,8 @@ public class UtilsTestCase  {
 	@Test
 	public void testGeoLocation() throws Exception {
 		
-		Address address = geoLoaction.getAddress("96.21.132.0");
+		String testIp = System.getenv().getOrDefault("GEOLOCATION_TEST_IP", "127.0.0.1");
+		Address address = geoLoaction.getAddress(testIp);
 		if(address!=null) {
 			System.out.println(address.getCountry());
 		}

@@ -39,7 +39,8 @@ public class ContentImagesTest extends com.salesmanager.test.common.AbstractSale
 
 		MerchantStore store = merchantService.getByCode(MerchantStore.DEFAULT_STORE);
 
-		final File file1 = new File("C:/doc/Hadoop.jpg");
+		final String testImagePath = System.getenv().getOrDefault("TEST_IMAGE_PATH", "/app/test/resources/Hadoop.jpg");
+		final File file1 = new File(testImagePath);
 
 		if (!file1.exists() || !file1.canRead()) {
 			throw new ServiceException("Can't read" + file1.getAbsolutePath());

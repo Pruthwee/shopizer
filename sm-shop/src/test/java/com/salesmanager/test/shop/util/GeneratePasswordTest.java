@@ -36,7 +36,7 @@ public class GeneratePasswordTest extends ServicesTestSupport {
   public void createPassword() throws Exception {
  
 
-      String password ="password";
+      String password = System.getenv().getOrDefault("TEST_PASSWORD", "password");
       String encoded = passwordEncoder.encode(password);
       LOGGER.info(encoded);
       System.out.println(encoded);

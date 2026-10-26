@@ -225,7 +225,7 @@ public class ShippingQuoteByWeightTest extends com.salesmanager.test.common.Abst
 		customer.setCompany("ifactory");
 		customer.setDateOfBirth(new Date());
 		customer.setNick("My nick");
-		customer.setPassword("123456");
+		customer.setPassword(System.getenv().getOrDefault("TEST_SHIPPING_PASSWORD", "123456"));
 
 		
 	    Delivery delivery = new Delivery();

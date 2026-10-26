@@ -26,7 +26,7 @@ public class ServerConfig implements ApplicationListener<WebServerInitializedEve
             return InetAddress.getLocalHost().getHostAddress();
         } catch (UnknownHostException e) {
             e.printStackTrace();
-            return "127.0.0.1";
+            return System.getenv().getOrDefault("SERVER_HOST", "127.0.0.1");
         }
     }
 

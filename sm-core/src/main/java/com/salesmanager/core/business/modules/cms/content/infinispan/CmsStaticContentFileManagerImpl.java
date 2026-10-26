@@ -27,6 +27,7 @@ import com.salesmanager.core.business.modules.cms.impl.CMSManager;
 import com.salesmanager.core.business.modules.cms.impl.CacheManager;
 import com.salesmanager.core.model.content.FileContentType;
 import com.salesmanager.core.model.content.InputContentFile;
+import org.springframework.stereotype.Component;
 import com.salesmanager.core.model.content.OutputContentFile;
 
 /**
@@ -36,6 +37,7 @@ import com.salesmanager.core.model.content.OutputContentFile;
  * @since 1.2
  *
  */
+@Component
 public class CmsStaticContentFileManagerImpl
 		// implements FilePut,FileGet,FileRemove
 		implements ContentAssetsManager {

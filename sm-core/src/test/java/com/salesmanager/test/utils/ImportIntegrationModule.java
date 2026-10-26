@@ -91,7 +91,8 @@ public class ImportIntegrationModule  {
 		
 
 			ObjectMapper mapper = new ObjectMapper();
-			File file = new File("/Users/carlsamson/Documents/dev/workspaces/shopizer-master/shopizer/sm-core/src/main/resources/reference/integrationmodules.json");
+			String integrationModulesPath = System.getenv().getOrDefault("INTEGRATION_MODULES_PATH", "/app/config/integrationmodules.json");
+			File file = new File(integrationModulesPath);
 
 
 		try (InputStream in = new FileInputStream(file)) {

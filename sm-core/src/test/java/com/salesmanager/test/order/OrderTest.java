@@ -73,7 +73,7 @@ public class OrderTest extends com.salesmanager.test.common.AbstractSalesManager
 		customer.setMerchantStore(merchant);
 		customer.setDefaultLanguage(en);
 		customer.setEmailAddress("email@email.com");
-		customer.setPassword("-1999");
+		customer.setPassword(System.getenv().getOrDefault("TEST_ORDER_PASSWORD", "-1999"));
 		customer.setNick("My New nick");
 		customer.setCompany(" Apple");	
 		customer.setGender(CustomerGender.M);
